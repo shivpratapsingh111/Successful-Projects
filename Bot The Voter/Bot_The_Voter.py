@@ -1,4 +1,6 @@
+#loop----------------------------------------------------------------------------------------------------
 while True:
+    #Some necessary imports------------------------------------------------------------------------------
     from ast import arguments
     from selenium import webdriver
     from selenium.webdriver.common.keys import Keys
@@ -8,9 +10,11 @@ while True:
     import random
     PATH = "C:\Program Files (x86)\chromedriver.exe"
     driver = webdriver.Chrome(PATH)
-    #driver.maximize_window()
+    #Goes to the webpage-----------------------------------------------------------------------------------
+    
     driver.get("https://events.skeducations.com/DigitalEvents/carnivalShare?bcuid=Mjk5")
     time.sleep(4)
+    #Logins through fake credentials-----------------------------------------------------------------------
     votebtn= driver.find_element_by_class_name("need_login")
     driver.execute_script("arguments[0].click();",votebtn)
     time.sleep(1)
@@ -19,6 +23,7 @@ while True:
     name.send_keys("pillolo")
     email=driver.find_element_by_name("email")
     email.click()
+    #enters a random email address--------------------------------------------------------------------------------------
     unamelist = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"]
     uname=(random.choice(unamelist)+random.choice(unamelist)+random.choice(unamelist)+random.choice(unamelist)+random.choice(unamelist)+random.choice(unamelist)+random.choice(unamelist)+"@guko.sf")
     email.send_keys(uname)
@@ -32,6 +37,7 @@ while True:
     time.sleep(3)
     like= driver.find_element_by_class_name("up_like")
     driver.execute_script("arguments[0].click();",like)
+    #TADA!---------------------------------------------------------------------------------------------------------
     time.sleep(3)
     driver.quit()
 
